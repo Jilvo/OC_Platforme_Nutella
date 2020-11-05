@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import dj_database_url
 import django_heroku
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,10 +25,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xg!k++*lth5d6sbh*o&qh%)egbyu90e3*4nz!!u+3$_0u83@0s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ENV = 'PRODUCTION'
+if os.environ.get('ENV') == 'PRODUCTION':
+    DEBUG = False
+else:
+    DEBUG = True
 
 
-ALLOWED_HOSTS = ['purbeurre-jilvo.herokuapp.com/']
+ALLOWED_HOSTS = ['.herokuapp.com/']
 
 
 # Application definition
@@ -54,13 +58,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+        
 
 ROOT_URLCONF = 'oc_8_projet_nutella.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/Julien/Documents/Git/Projet_8/OC_Platforme_Nutella'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,13 +79,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'oc_8_projet_nutella.wsgi.application'
-
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'static'),
-)
  
 
 # Database
@@ -97,6 +95,7 @@ DATABASES = {
         'HOST': 'localhost',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -138,9 +137,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'statifiles')
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 STATICFILES_DIRS=[(os.path.join(BASE_DIR,'static'))]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'
