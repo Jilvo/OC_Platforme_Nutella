@@ -6,12 +6,13 @@ PATH = 'C:\Program Files (x86)\chromedriver.exe'
 driver = webdriver.Chrome(PATH)
 
 driver.get("https://purbeurre-jilvo.herokuapp.com/")
+driver.maximize_window
 print(driver.title)
 
-search = driver.find_element_by_name("query")
+search = driver.find_element_by_id("query")
 search.send_keys("steak")
-search.send_keys(Keys.RETURN)
+print(search.send_keys(Keys.RETURN))
 
-time.sleep(20)
+time.sleep(1)
 
 driver.close()

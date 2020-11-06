@@ -30,7 +30,11 @@
                     <img src="{% static 'assets/img/logo.png' %}" width="30" height="30" alt="" loading="lazy">
                 </a>
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">Pur Beurre</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <form class="form-inline" action="{% url 'search_result' %}" method="GET" accept-charset="utf-8">
@@ -61,7 +65,7 @@
         {% block content %} {% endblock %}
     <footer class="bg-light py-5">
         <div><a href="{% url 'legal_mention' %}"><div id="left" class="small text-center text-muted">Mentions legales</div></a></div>
-        <div><div id="right" class="small text-center text-muted">Contact</div></div>
+        <div><a href="{% url 'index' %}"><div id="left" class="small text-center text-muted"></div><div id="right" class="small text-center text-muted">Contact</div></a></div>
     </footer>
 
         <!-- Bootstrap core JS-->

@@ -4,3 +4,4 @@ __pycache__
 .git
 /.vscode
 /.pytest_cache
+.data.json
