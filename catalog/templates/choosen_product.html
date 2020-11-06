@@ -7,7 +7,7 @@
 
 <section class="bg_footer page-section product " id="choice">
   <div>
-    <h3 class="center_text"> Le produit que vous avez choisit est : {{product.name}}</h3>
+    <h3 class="center_text" id='produit_choosen_result'> Le produit que vous avez choisit est : {{product.name}}</h3>
     <div class="row">
       <div class="col-xl-4 px-xl-5 col-lg-4 col-md-5 col-sm-6 col-xs-10 mx-auto text-center" class="product_result" style="text-align: center;">
         <div class="item" style="width: 10px;">
@@ -66,7 +66,7 @@
         <form class="form-inline" action="{% url 'add_favorits' %}" method="GET" accept-charset="utf-8">
           {% csrf_token %}
           <div class="form-group">
-            <input type="hidden" value="{{product.name}}" name='_substitute_product'>
+            <input type="hidden" value="{{product.name}}" name='_substitute_product' id='_substitute_product'>
             <input type="submit" class="btn btn-success add_fav" value="Ajouter ce produit à mes favoris" >
           </div>
         </form>
