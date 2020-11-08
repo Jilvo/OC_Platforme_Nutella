@@ -43,18 +43,18 @@
                         </form>
                         {% if user.is_authenticated %}
                         <a class="navbar-brand" href="favorits">
-                            <img src="{% static 'assets/img/carrot.png' %}" width="30" height="30" alt="carrot" loading="lazy">
+                            <img src="{% static 'assets/img/carrot.png' %}" width="30" height="30" alt="carrot" loading="lazy" id="carrot">
                         </a>
                         <form action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}
                         <button type="submit" value="logout"><a class="navbar-brand" href="#">
-                            <img src="{% static 'assets/img/logout.png' %}" width="30" height="30" alt="logout" loading="lazy">
+                            <img src="{% static 'assets/img/logout.png' %}" width="30" height="30" alt="logout" loading="lazy" id="logout">
                         </a></button>
                         
                         </form>
                         {% else %}
                         <a class="navbar-brand" href="login">
-                            <img src="{% static 'assets/img/login.png' %}" width="30" height="30" alt="login" loading="lazy" style="
+                            <img src="{% static 'assets/img/login.png' %}" width="30" height="30" alt="login" loading="lazy" id="login"style="
                             filter: invert(100%);">
                         </a>
                         {% endif %}
