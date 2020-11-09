@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles_changes.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 <body id="page-top" class="product bg_opacity"></body>
 <style>
@@ -16,7 +17,7 @@
     <div class="row">
       {% for prod in product %}
       <div class="col-xl-4 px-xl-5 col-lg-4 col-md-5 col-sm-6 col-xs-10 mx-auto text-center" class="product_result" style="text-align: center;">
-        <h5 class="custom-color "name="product_name">{{prod.name}}</h5>
+        <h5 class="custom-color" name="product_name" style="margin-top: 20px;">{{prod.name}}</h5>
         <div class="item" style="width: 10px;">
           <span class="notify-badge" name="nutrition_grade">{{prod.nutrition_grade}}</span>
           <img src={{prod.image}} class="pic_search_result" name="image">

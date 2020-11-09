@@ -68,6 +68,7 @@ def connexion(request):
             login(request, user)  # nous connectons l'utilisateur
             # return redirect(user_page)
             print("Connecté")
+            return redirect('index')
         else: # sinon une erreur sera affichée
             
             print("Utilisateur inconnu ou mauvais de mot de passe.")
