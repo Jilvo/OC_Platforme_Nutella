@@ -15,36 +15,79 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, unique=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200, unique=True)),
-                ('description', models.CharField(max_length=1000)),
-                ('nutrition_grade', models.CharField(max_length=1)),
-                ('image', models.URLField(null=True)),
-                ('brand', models.CharField(max_length=200)),
-                ('calories', models.CharField(max_length=5, null=True)),
-                ('lipids', models.CharField(max_length=5, null=True)),
-                ('sugars', models.CharField(max_length=5, null=True)),
-                ('proteins', models.CharField(max_length=5, null=True)),
-                ('salts', models.CharField(max_length=5, null=True)),
-                ('url', models.URLField()),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='product', to='catalog.Category')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200, unique=True)),
+                ("description", models.CharField(max_length=1000)),
+                ("nutrition_grade", models.CharField(max_length=1)),
+                ("image", models.URLField(null=True)),
+                ("brand", models.CharField(max_length=200)),
+                ("calories", models.CharField(max_length=5, null=True)),
+                ("lipids", models.CharField(max_length=5, null=True)),
+                ("sugars", models.CharField(max_length=5, null=True)),
+                ("proteins", models.CharField(max_length=5, null=True)),
+                ("salts", models.CharField(max_length=5, null=True)),
+                ("url", models.URLField()),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="product",
+                        to="catalog.Category",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='UserFavorite',
+            name="UserFavorite",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.Product')),
-                ('user_name', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="catalog.Product",
+                    ),
+                ),
+                (
+                    "user_name",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

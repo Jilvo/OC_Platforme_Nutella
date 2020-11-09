@@ -12,7 +12,6 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oc_8_projet_nutella.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "oc_8_projet_nutella.settings")
 
 application = get_wsgi_application()
-

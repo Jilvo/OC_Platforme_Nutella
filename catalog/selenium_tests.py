@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 
-PATH = 'C:\Program Files (x86)\chromedriver.exe'
+PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
 driver.get("https://purbeurre-jilvo.herokuapp.com/")
@@ -24,19 +24,19 @@ driver.find_element_by_id("submit").click()
 
 # go_to_home = driver.find_element_by_id("")
 
-# search = driver.find_element_by_id("query")
-# search.send_keys("steak")
-# print(search.send_keys(Keys.RETURN))
+search = driver.find_element_by_id("query")
+search.send_keys("steak")
+print(search.send_keys(Keys.RETURN))
 
-# link = driver.find_element_by_id('choice_product_input')
-# link.click()
+link = driver.find_element_by_id("choice_product_input")
+link.click()
 
+lipids = driver.find_element_by_id("lipids")
+print(lipids.text)
 # search = driver.find_elements_by_id('produit_choosen_result')
 # print()
 
 # link = driver.find_elements_b
-
-
 
 
 time.sleep(5)

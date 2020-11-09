@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oc_8_projet_nutella.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "oc_8_projet_nutella.settings")
 
 application = get_asgi_application()

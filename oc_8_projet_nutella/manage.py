@@ -4,9 +4,8 @@ import os
 import sys
 
 
-
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oc_8_projet_nutella.settings')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "oc_8_projet_nutella.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -18,5 +17,5 @@ def main():
     execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
