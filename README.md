@@ -2,10 +2,39 @@
 # Project 8 of the Parcours développeur d'application python from OpenClassrooms
 # Specification
 ## Features :
+
+# How can i access to the website ? 
+You just have to click here https://grandpy-jilvo.herokuapp.com/
+
+# How to run the program?
+Follow the different steps :
+
+## Setup
+You need to download the django framework : 
+```bash
+pip install django
+```
+If you are on MacOS, or Linux : 
+```bash
+sudo apt-get install -y python3-pip
+sudo apt-get install -y \
+    python3-numpy libav-tools libsdl-image1.2-dev \
+    libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev \
+    libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev \
+    libfreetype6-dev
+sudo pip3 install -q django
+```
+## Utilisation 
+Next thing is to run requirements.txt
+## Running
+Now you can run the app with :
+```bash
+py manage.py runserver
+```
 ## What remain to be done ?
 - Do the TDD
 
-- Push on Heroku
+- Coverage
 
 - Set up environment variable
 ## Versioning :
@@ -27,6 +56,7 @@ V0.8 Starting tests, Set up the connection and the register for the user, order 
 
 V0.9 Create the function in order to add favorits,build the favorit's page, so we can see the favorits
 
+V0.9.1 Black library, flake8 library, make a route with selenium
 
 ## Author and Contribution :
 I built this program as part of an formation on OpenClassrooms. Therefore every *pull request* will be refused. Insted you can open an *issue* to signal a *bug*, a typographical error or just for give me an advice
