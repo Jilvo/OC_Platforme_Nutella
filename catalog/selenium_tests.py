@@ -31,8 +31,8 @@ print(search.send_keys(Keys.RETURN))
 link = driver.find_element_by_id("choice_product_input")
 link.click()
 
-lipids = driver.find_element_by_id("lipids")
-print(lipids.text)
+lipids = driver.find_element_by_id("salts")
+print("Il y a "+ lipids.text + " gramme(s) de sel pour 100g")
 # search = driver.find_elements_by_id('produit_choosen_result')
 # print()
 
