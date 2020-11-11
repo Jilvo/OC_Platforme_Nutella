@@ -6,6 +6,11 @@ from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.hashers import check_password
 from .forms import ConnexionForm, RegistrationForm
 
+def page_not_found_view(request):
+     return render(request,'404.html')
+
+def page_internal_error(request):
+     return render(request,'500.html')
 
 def legal_mention(request):
     return render(request, "legal_mention.html")

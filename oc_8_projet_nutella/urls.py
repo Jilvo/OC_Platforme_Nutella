@@ -18,8 +18,11 @@ from django.urls import path
 from catalog import views as catalog_views
 from manage_user import views as manage_user_views
 
+
 urlpatterns = [
     path("administration/", admin.site.urls),
+    path("404", manage_user_views.page_not_found_view),
+    path("500", manage_user_views.page_internal_error),
     path("legal_mention", manage_user_views.legal_mention, name="legal_mention"),
     path("", catalog_views.home_function, name="index"),
     path("login", manage_user_views.connexion, name="login"),
