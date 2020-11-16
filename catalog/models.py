@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class Category(models.Model):
     """Category class """
@@ -35,7 +36,3 @@ class Product(models.Model):
 class UserFavorite(models.Model):
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-
-
-# class Profil(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)  # La liaison OneToOne vers le modèle User

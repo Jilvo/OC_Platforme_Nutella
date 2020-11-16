@@ -4,20 +4,20 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+PATH = "C:/Program Files (x86)/chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
 driver.get("https://purbeurre-jilvo.herokuapp.com/")
 driver.maximize_window
-print(driver.title)
+# print(driver.title)
 
 go_to_login_page = driver.find_element_by_id("login")
 go_to_login_page.click()
 
 login_user = driver.find_element_by_id("username")
 login_pwd = driver.find_element_by_id("password")
-print(login_user)
-print(login_pwd)
+# print(login_user)
+# print(login_pwd)
 login_user.send_keys("test1")
 login_pwd.send_keys("test1")
 driver.find_element_by_id("submit").click()
@@ -32,12 +32,7 @@ link = driver.find_element_by_id("choice_product_input")
 link.click()
 
 lipids = driver.find_element_by_id("salts")
-print("Il y a "+ lipids.text + " gramme(s) de sel pour 100g")
-# search = driver.find_elements_by_id('produit_choosen_result')
-# print()
-
-# link = driver.find_elements_b
-
+print("Il y a " + lipids.text + " gramme(s) de sel pour 100g")
 
 time.sleep(5)
 

@@ -1,14 +1,11 @@
-import requests
-
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib import messages
-from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect
 
 from .models import Product, Category, UserFavorite
+
 
 # Create your views here.
 def home_function(request):
@@ -36,7 +33,8 @@ def searchresult(request):
             title = (
                 "Votre recherche, "
                 + query
-                + ", n'a donné aucun résultat, affichage des 10 premiers produits"
+                + ", n'a donné aucun résultat,"
+                + "affichage des 10 premiers produits"
             )
             product = Product.objects.all()[0:10]
             context = {"title": title, "product": product}
@@ -65,9 +63,6 @@ def choosen_product(request):
         "nutrition_grade"
     )[:6]
     print(type(sub_product))
-    list_cat_order = []
-    # for prod in Product.objects.order_by("")
-
     context = {"product": product, "sub_product": sub_product}
     print(sub_product)
     return render(request, "choosen_product.html", context)
@@ -84,20 +79,22 @@ def add_favorite(request):
     print(query_name)
     print("ID DU PRODUIT")
     username = request.user
-    user_id = request.user.id
-    # user = User.objects.get(id=username)
+    # user_id = request.user.id
+    # # user = User.objects.get(id=username)
     print(username)
     print("ID DE L'USER")
     if query_name is not None:
         try:
             UserFavorite.objects.get(user_name=username, product=query_name)
             print("Ce produit est déjà dans vos favoris.")
+            return redirect("favorits")
         except ObjectDoesNotExist:
             new_favorite = UserFavorite.objects.create(
                 user_name=username, product=query_name
             )
             new_favorite.save()
             print("Le produit a bien été enregistré.")
+            return redirect("favorits")
     else:
         pass
     return redirect("favorits")
@@ -133,7 +130,9 @@ def remove_favorits(request):
     user_name = request.user
     print(user_name)
     if product is not None:
-        del_prod = UserFavorite.objects.filter(user_name=user_name, product=product)
+        del_prod = UserFavorite.objects.filter(
+             user_name=user_name,
+             product=product)
 
         # Category.objects.filter().delete(del_prod)
         print(del_prod.id)

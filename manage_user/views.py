@@ -6,27 +6,35 @@ from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.hashers import check_password
 from .forms import ConnexionForm, RegistrationForm
 
+
 def page_not_found_view(request):
-     return render(request,'404.html')
+    """display the HTML code 404 page"""
+    return render(request, '404.html')
+
 
 def page_internal_error(request):
-     return render(request,'500.html')
+    """display the HTML code 500 page"""
+    return render(request, '500.html')
+
 
 def legal_mention(request):
+    """display legal mention page"""
     return render(request, "legal_mention.html")
 
 
 # Create your views here.
 def signin_function(request):
+    """display the login page"""
     return render(request, "login.html")
 
 
 def signup_function(request):
-
+    """display the signup page"""
     return render(request, "signup.html")
 
 
 def register(request):
+    """function for create a account """
     if request.method == "GET":
         return render(request, "signup.html")
     # print(request.POST["password"])
@@ -45,18 +53,17 @@ def register(request):
                 print(user.check_password(password))
                 # print(user)
                 login(request, user)  # nous connectons l'utilisateur
-                messages.success(request, "Votre compte a bien été crée")
                 print("Votre compte a bien été crée")
             except Exception as e:
                 form = RegistrationForm()
                 print(e)
-                # messages.error("request, 'Votre compte n‘a pas été crée.'")
             return render(request, "index.html")
         else:
             return render(request, "index.html")
 
 
 def connexion(request):
+    """function who called when a user try to be connected"""
     print(request.user.is_authenticated)
     if request.user.is_authenticated:
         print("déja connecté")
@@ -92,6 +99,7 @@ def connexion(request):
 
 
 def logout_view(request):
+    """function who call when a user logout from the website"""
     if request.method == "POST":
         logout(request)
         return redirect("index")
