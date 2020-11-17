@@ -58,5 +58,7 @@ V0.9 Create the function in order to add favorits,build the favorit's page, so w
 
 V0.9.1 Black library, flake8 library, make a route with selenium
 
+V1.0 Test endend
+
 ## Author and Contribution :
 I built this program as part of an formation on OpenClassrooms. Therefore every *pull request* will be refused. Insted you can open an *issue* to signal a *bug*, a typographical error or just for give me an advice

@@ -4,40 +4,33 @@ from django.contrib.auth.models import User
 from catalog.models import UserFavorite, Product, Category
 
 # # Create your tests here.
+class DetailPageTestCase(TestCase):
+    """class DetailPageTestCase"""
+    def setUp(self):
+        """Create somme products, user and favorites in the database"""
+        steak = Product.objects.create(name='Steak', nutrition_grade='e',  url="https://test.com")
+        poulet = Product.objects.create(name='Poulet', nutrition_grade='d',  url="https://test.com")
+        self.product_id = Product.objects.get(name='Steak')
+        self.substitute_id = Product.objects.get(name='Poulet')
+        user_with_favorite = User.objects.create(username='test_user')
+        user_without_favorite = User.objects.create(username='no_favorite_user')
+        self.user = User.objects.get(username='test_user')
+        self.no_favorite_user = User.objects.get(username='no_favorite_user')
+        favorite = UserFavorite.objects.create(user_name=self.user, product=self.substitute_id)
 
+    def test_search_return_context(self):
+        """Test that "stea" query return the "steak" product """
+        user_search = "stea"
+        response = self.client.post(reverse("search_result"), context={'query': user_search,})
+        product_returned = response.context['product'][0].name
+        self.assertEqual(product_returned, 'Steak')
 
-# class DetailPageTestCase(TestCase):
-#     """Test detail pages"""
-
-#     # ran before each test.
-#     def setUp(self):
-#         """setUp"""
-#         self.product = Product()
-#         self.category = Category.objects.create(name="Saumons, Poissons")
-#         self.user = User.objects.get(username="test_user")
-#         self.product = Product.objects.create(
-#             name="SOMETHING_WITH_NUTRI_SCORE_A",
-#             category=self.category,
-#             description="nothing",
-#             nutriscore="A",
-#             stores="LECLERC",
-#             image="img/...",
-#             brand="Django",
-#             calories="49",
-#             lipids="78",
-#             sugars="8",
-#             proteins="7",
-#             salts="8",
-#             url_off="https://...",
-#             id="74",
-#         )
-#         self.product.save()
-
-#     # def test_detail_page_returns_200(self):
-#     #     """test that detail page returns a 200 if the item exists"""
-#     #     product_id = self.product.id
-#     #     response = self.client.get(reverse('index', args=(product_id)))
-#     #     self.assertEqual(response.status_code, 200)
+    def test_favorites_return_context(self):
+        """Test that 'favorites' view 'Poulet' if the user is logged-in"""
+        self.client.force_login(self.user)
+        response = self.client.get(reverse('see_favorits'))
+        favorite_returned = response.context['product'][0].name
+        self.assertEqual(favorite_returned, 'Poulet')
 
 
 # class Favorites(TestCase):
@@ -51,39 +44,6 @@ from catalog.models import UserFavorite, Product, Category
 
 class PageTestCase(TestCase):
     """class PageTestCase"""
-
-    # def setUp(self):
-    #     """setUp"""
-    #     self.product = Product()
-    #     self.category = Category.objects.create(name="Saumons, Poissons")
-    #     self.user = User.objects.get(username="test_user")
-    #     self.product = Product.objects.create(
-    #         name="SOMETHING_WITH_NUTRI_SCORE_A",
-    #         category=self.category,
-    #         description="nothing",
-    #         nutriscore="A",
-    #         stores="LECLERC",
-    #         image="img/...",
-    #         brand="Django",
-    #         calories="49",
-    #         lipids="78",
-    #         sugars="8",
-    #         proteins="7",
-    #         salts="8",
-    #         url_off="https://...",
-    #     )
-    #     self.product.save()
-
-    # def test_choosen_product_page(self):
-    #     """test_choosen_product_page"""
-    #     response = self.client.get(
-    #         reverse("choosen_product"),
-    #         {
-    #             "product_name": "SOMETHING_WITH_NUTRI_SCORE_A",
-    #         },
-    #     )
-    #     self.assertEqual(response.status_code, 200)
-
     def test_favorits_page(self):
         """test_favorits_page"""
         response = self.client.get(reverse("see_favorits"))

@@ -20,15 +20,12 @@ def searchresult(request):
     if not we disp 10 product of the base"""
     query = request.GET.get("query", "")
     print(query)
-
     if not query:
         title = "Aucun champ rempli, affichage des 10 premiers produits"
         product = Product.objects.all()[0:10]
         context = {"product": product, "title": title}
     else:
         product = Product.objects.filter(name__contains=query)[:6]
-        # cat = Category.product.all()
-
         if not product:
             title = (
                 "Votre recherche, "
@@ -42,8 +39,6 @@ def searchresult(request):
             title = str("Votre recherche est :" + " " + query)
             context = {"title": title, "product": product}
     print(product)
-    # print(cat)
-    # return render(request,"search_result.html",context)
     return render(request, "search_result.html", context)
 
 
@@ -87,17 +82,17 @@ def add_favorite(request):
         try:
             UserFavorite.objects.get(user_name=username, product=query_name)
             print("Ce produit est déjà dans vos favoris.")
-            return redirect("favorits")
+            return redirect("see_favorits")
         except ObjectDoesNotExist:
             new_favorite = UserFavorite.objects.create(
                 user_name=username, product=query_name
             )
             new_favorite.save()
             print("Le produit a bien été enregistré.")
-            return redirect("favorits")
+            return redirect("see_favorits")
     else:
         pass
-    return redirect("favorits")
+    return redirect("see_favorits ")
     # return render(request,'index.html')
 
 
@@ -124,17 +119,23 @@ def see_favorits(request):
 
 @login_required
 def remove_favorits(request):
-    """remove one product from the favorits"""
-    product = request.GET.get("delete_prod", "")
-    print(product)
-    user_name = request.user
-    print(user_name)
-    if product is not None:
-        del_prod = UserFavorite.objects.filter(
-             user_name=user_name,
-             product=product)
-
-        # Category.objects.filter().delete(del_prod)
-        print(del_prod.id)
-    context = {"product": product}
-    return render(request, "favorits.html", context)
+    pass
+#     return render(request, "index.html")
+#     # """remove one product from the favorits"""
+#     # product = request.GET.get("delete_prod", "")
+#     # print("Nom du produit")
+#     # print(product)
+#     # user_name = request.user
+#     # print('nom de luser')
+#     # print(user_name)
+#     # if product is not None:
+#     #     del_prod = UserFavorite.objects.filter(
+#     #          user_name=user_name,
+#     #          product=product)
+ 
+#     #     # Category.objects.filter().delete(del_prod)
+#     #     # print(del_prod.id)
+#     # else:
+#     #     pass
+#     # context = {"product": product}
+#     # return render(request, "favorits.html", context)

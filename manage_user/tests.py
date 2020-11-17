@@ -21,6 +21,16 @@ class PageTestCase(TestCase):
         response = self.client.get(reverse('signup'))
         self.assertEqual(response.status_code, 200)
 
+    def test_404_page(self):
+        """test_404_page"""
+        response = self.client.get(reverse('404'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_500_page(self):
+        """test_500_page"""
+        response = self.client.get(reverse('500'))
+        self.assertEqual(response.status_code, 200)
+
 class StatusTestCase(TestCase):
     """ class StatusTestCase """
     def test_login(self):
@@ -38,14 +48,14 @@ class StatusTestCase(TestCase):
     #     "test logout"
     #     respone
 
-    def test_register(self):
-        user = User.objects.create(username='testuser')
-        user.set_password('12345')
-        user.save()
-        logged_in = self.client.login(username='testuser', password='12345')
-        self.assertTrue(logged_in)
-        response = self.client.get("/")
-        self.assertEqual(response.status_code , 200)
+    # def test_register(self):
+    #     user = User.objects.create(username='testuser')
+    #     user.set_password('12345')
+    #     user.save()
+    #     logged_in = self.client.login(username='testuser', password='12345')
+    #     self.assertTrue(logged_in)
+    #     response = self.client.get("/")
+    #     self.assertEqual(response.status_code , 200)
 
 
     
