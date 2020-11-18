@@ -57,9 +57,9 @@ def register(request):
             except Exception as e:
                 form = RegistrationForm()
                 print(e)
-            return render(request, "index.html")
+            return render(request, "login.html")
         else:
-            return render(request, "index.html")
+            return render(request, "login.html")
 
 
 def connexion(request):
