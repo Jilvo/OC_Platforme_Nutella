@@ -45,19 +45,6 @@ class StatusTestCase(TestCase):
         response = self.client.login(username="fake", password="fake")
         self.assertFalse(response)
 
-    # def test_logout(self):
-    #     "test logout"
-    #     respone
-
-    # def test_register(self):
-    #     user = User.objects.create(username='testuser')
-    #     user.set_password('12345')
-    #     user.save()
-    #     logged_in = self.client.login(username='testuser', password='12345')
-    #     self.assertTrue(logged_in)
-    #     response = self.client.get("/")
-    #     self.assertEqual(response.status_code , 200)
-
 
     
 

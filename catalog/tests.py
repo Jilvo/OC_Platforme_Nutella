@@ -68,27 +68,10 @@ class NoReverse(TestCase):
             self.assertRaisesMessage(NoReverseMatch, response)
         except NoReverseMatch:
             pass
-# class Favorites(TestCase):
-#     """Class Favorits"""
-
-#     def create_fav(self):
-#         DetailPageTestCase.setUp(self)
-#         self.my_user = User.objects.create(id=5, username="Testuser")
-#         self.favorite = None
 
 
 class PageTestCase(TestCase):
     """class PageTestCase"""
-    # def test_choosen_product_page(self):
-    #     """test_favorits_page"""
-    #     response = self.client.get(reverse("choosen_product"))
-    #     self.assertEqual(response.status_code, 302)
-
-    # def test_favorits_page(self):
-    #     """test_favorits_page"""
-    #     response = self.client.get(reverse("see_favorits"))
-    #     self.assertEqual(response.status_code, 302)
-
     def test_index_page(self):
         """test_index_page"""
         response = self.client.get(reverse("index"))
