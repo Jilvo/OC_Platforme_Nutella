@@ -23,11 +23,6 @@
           <span class="notify-badge" name="nutrition_grade">{{prod.nutrition_grade}}</span>
           <img src={{prod.image}} class="pic_search_result" name="image">
         </div>
-        <!-- <form class="form-inline" action="{% url 'delete_fav' %}" method="GET" accept-charset="utf-8">
-          {% csrf_token %}
-          <input type="hidden" value="{{prod.id}}" name='delete_prod'>
-          <input type="submit" class="btn btn-success" value="Supprimer">
-        </form> -->
       </div>
         {% endfor %}
     </div>

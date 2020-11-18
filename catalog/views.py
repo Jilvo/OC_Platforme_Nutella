@@ -101,7 +101,6 @@ def see_favorits(request):
     """See the favorits of the User"""
     user_name = request.user
     print(user_name)
-    # product = UserFavorite.objects.filter(user_name=user_name)
     list_favorits = UserFavorite.objects.all().filter(user_name=user_name)
     favorits_query = list_favorits
     favorits_list = []
@@ -113,29 +112,4 @@ def see_favorits(request):
         "user_name": user_name,
         "product": favorits_list,
     }
-
     return render(request, "favorits.html", context)
-
-
-@login_required
-def remove_favorits(request):
-    pass
-#     return render(request, "index.html")
-#     # """remove one product from the favorits"""
-#     # product = request.GET.get("delete_prod", "")
-#     # print("Nom du produit")
-#     # print(product)
-#     # user_name = request.user
-#     # print('nom de luser')
-#     # print(user_name)
-#     # if product is not None:
-#     #     del_prod = UserFavorite.objects.filter(
-#     #          user_name=user_name,
-#     #          product=product)
- 
-#     #     # Category.objects.filter().delete(del_prod)
-#     #     # print(del_prod.id)
-#     # else:
-#     #     pass
-#     # context = {"product": product}
-#     # return render(request, "favorits.html", context)

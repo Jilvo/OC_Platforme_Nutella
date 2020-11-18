@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
 from catalog.models import UserFavorite,Product
+from catalog.tests import DetailPageTestCase
 # Create your tests here.
 
 class PageTestCase(TestCase):

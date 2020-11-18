@@ -34,6 +34,5 @@ urlpatterns = [
     path("choosen_product", catalog_views.choosen_product,\
          name="choosen_product"),
     path("addfavorits", catalog_views.add_favorite, name="add_favorits"),
-    path("favorits", catalog_views.see_favorits, name="see_favorits"),
-    path("delete_fav", catalog_views.remove_favorits, name="delete_fav"),
+    path("favorits", catalog_views.see_favorits, name="see_favorits")
 ]
