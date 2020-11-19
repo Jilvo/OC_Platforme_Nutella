@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.hashers import check_password
 from .forms import ConnexionForm, RegistrationForm
-
+from django.http import HttpResponse
 
 def page_not_found_view(request):
     """display the HTML code 404 page"""
@@ -102,4 +102,5 @@ def logout_view(request):
     """function who call when a user logout from the website"""
     if request.method == "POST":
         logout(request)
-        return redirect("index")
+        print(HttpResponse())
+        return redirect(request, "index")
