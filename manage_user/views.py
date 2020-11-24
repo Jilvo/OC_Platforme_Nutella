@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.hashers import check_password
 from .forms import ConnexionForm, RegistrationForm
-from django.http import HttpResponse
+
 
 def page_not_found_view(request):
     """display the HTML code 404 page"""
@@ -80,8 +80,8 @@ def connexion(request):
         user = authenticate(
             username=username, password=password
         )  # Nous vérifions si les données sont correctes
-        print(user)
-        print(user.check_password(password))
+        # print(user)
+        # print(user.check_password(password))
 
         if user is not None:  # Si l'objet renvoyé n'est pas None
             login(request, user)  # nous connectons l'utilisateur
@@ -89,8 +89,8 @@ def connexion(request):
             print("Connecté")
             return redirect("index")
         else:  # sinon une erreur sera affichée
-
             print("Utilisateur inconnu ou mauvais de mot de passe.")
+            return redirect("login")
     else:
         # form = ConnexionForm()
         print("Rien ne se passe aucune connexion effectué")
@@ -102,5 +102,4 @@ def logout_view(request):
     """function who call when a user logout from the website"""
     if request.method == "POST":
         logout(request)
-        print(HttpResponse())
-        return redirect(request, "index")
+        return render(request, "index.html")
