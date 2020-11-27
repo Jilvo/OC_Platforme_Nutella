@@ -26,6 +26,7 @@ urlpatterns = [
     path("legal_mention", manage_user_views.legal_mention,name="legal_mention"),
     path("", catalog_views.home_function, name="index"),
     path("login", manage_user_views.connexion, name="login"),
+    path("login_page",manage_user_views.signin_function,name="login_page"),
     path("logout", manage_user_views.logout_view, name="logout"),
     path("signup", manage_user_views.register, name="signup"),
     # path('search_result',catalog_views.searchresult),

@@ -23,7 +23,7 @@ def searchresult(request):
         product = Product.objects.all()[0:10]
         context = {"product": product, "title": title}
     else:
-        product = Product.objects.filter(name__contains=query)[:6]
+        product = Product.objects.filter(name__icontains=query)[:6]
         if not product:
             title = (
                 "Votre recherche, "
