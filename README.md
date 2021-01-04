@@ -3,7 +3,9 @@
 ### Specification
 
 ## How can i access to the website ? 
-You just have to click here https://grandpy-jilvo.herokuapp.com/
+On the project 8, the application was push with heroku on this link https://grandpy-jilvo.herokuapp.com/
+
+Or with the project 10 when i have to integrade my app on a unix server here http://51.15.236.212/
 
 ### How to run the program?
 Follow the different steps :
