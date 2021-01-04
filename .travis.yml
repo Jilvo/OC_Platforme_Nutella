@@ -2,7 +2,7 @@ language: python
 
 os: "linux"
 
-dist: "20.04"
+dist: "fossa"
 
 python:
     - "3.8"
