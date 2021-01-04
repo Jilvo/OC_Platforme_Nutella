@@ -6,7 +6,7 @@ services:
     - postgresql
 
 install:
-    - pipenv install
+    - pipenv install requirement.txt
 
 script:
       - python manage.py test  
