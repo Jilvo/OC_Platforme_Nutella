@@ -1,15 +1,14 @@
-# Créez une plateforme pour amateurs de Nutella
-# Project 8 of the Parcours développeur d'application python from OpenClassrooms
-# Specification
-## Features :
+## Créez une plateforme pour amateurs de Nutella
+## Project 8 of the Parcours développeur d'application python from OpenClassrooms
+### Specification
 
-# How can i access to the website ? 
+## How can i access to the website ? 
 You just have to click here https://grandpy-jilvo.herokuapp.com/
 
-# How to run the program?
+### How to run the program?
 Follow the different steps :
 
-## Setup
+### Setup
 You need to download the django framework : 
 ```bash
 pip install django
@@ -24,19 +23,14 @@ sudo apt-get install -y \
     libfreetype6-dev
 sudo pip3 install -q django
 ```
-## Utilisation 
+### Utilisation 
 Next thing is to run requirements.txt
-## Running
+### Running
 Now you can run the app with :
 ```bash
-py manage.py runserver
+python manage.py runserver
 ```
-## What remain to be done ?
-- Do the TDD
 
-- Coverage
-
-- Set up environment variable
 ## Versioning :
 V0.1 Creation of the home page
 
@@ -60,7 +54,10 @@ V0.9.1 Black library, flake8 library, make a route with selenium
 
 V1.0 Test endend
 
+V1.1 Integration with Unix Server
+
 ## Author and Contribution :
 I built this program as part of an formation on OpenClassrooms. Therefore every *pull request* will be refused. Insted you can open an *issue* to signal a *bug*, a typographical error or just for give me an advice
 
-### DjangoAuthenticationApp [![Build Status](https://travis-ci.com/Jilvo/OC_Platforme_Nutella.svg?branch=master)](https://travis-ci.com/Jilvo/OC_Platforme_Nutella)
+### DjangoAuthenticationApp     
+[![Build Status](https://travis-ci.com/Jilvo/OC_Platforme_Nutella.svg?branch=master)](https://travis-ci.com/Jilvo/OC_Platforme_Nutella)
