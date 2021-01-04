@@ -1,12 +1,16 @@
 language: python
 
+os: "linux"
+
+dist: "20.04"
+
 python:
     - "3.8"
 services:
     - postgresql
 
 install:
-    - pip install -r OC_Platforme_Nutella/requirements.txt
+    - pip install django
 
 script:
       - python manage.py test .\catalog\tests\   
