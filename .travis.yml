@@ -6,9 +6,9 @@ services:
     - postgresql
 
 install:
-    - pipenv install requirement.txt
+    - pip install -r OC_Platforme_Nutella/requirements.txt
 
 script:
-      - python manage.py test  
+      - python manage.py test .\catalog\tests\   
 
   
