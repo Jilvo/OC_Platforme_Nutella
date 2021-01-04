@@ -24,17 +24,17 @@ sudo apt-get install -y \
 sudo pip3 install -q django
 ```
 ### Installation
- ``` bash
+ ```
 pip install -r OC_Platforme_Nutella/requirements.txt
 ```
 
 ### Running
 Now you can run the app with :
-```bash
+```
 python manage.py runserver
 ```
 ### Testing 
-```bash
+```
 python manage.py test catalog/test/
 ```
 ## Versioning :
