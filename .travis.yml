@@ -9,6 +9,6 @@ install:
     - pipenv install
 
 script:
-      - python manage.py test .\catalog\tests\   
+      - python manage.py test  
 
   
