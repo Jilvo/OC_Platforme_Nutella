@@ -62,3 +62,5 @@ V1.0 Test endend
 
 ## Author and Contribution :
 I built this program as part of an formation on OpenClassrooms. Therefore every *pull request* will be refused. Insted you can open an *issue* to signal a *bug*, a typographical error or just for give me an advice
+
+### DjangoAuthenticationApp [![Build Status](https://travis-ci.com/Jilvo/OC_Platforme_Nutella.svg?branch=master)](https://travis-ci.com/Jilvo/OC_Platforme_Nutella)
