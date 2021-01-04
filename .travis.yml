@@ -2,7 +2,7 @@ language: python
 
 os: "linux"
 
-dist: "20.04"
+dist: "focal"
 
 python:
     - "3.8"
@@ -10,7 +10,7 @@ services:
     - postgresql
 
 install:
-    - pip install django
+    - ls
 
 script:
       - python manage.py test .\catalog\tests\   
