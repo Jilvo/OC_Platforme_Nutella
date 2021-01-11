@@ -2,7 +2,7 @@ language: python
 
 os: "linux"
 
-dist: "fossa"
+dist: "focal"
 
 python:
     - "3.8"
