@@ -3,7 +3,7 @@
 ### Specification
 
 ## How can i access to the website ? 
-On the project 8, the application was push with heroku on this link https://grandpy-jilvo.herokuapp.com/
+On the project 8, the application was push with heroku on this link https://purbeurre-jilvo.herokuapp.com/
 
 Or with the project 10 when i have to integrade my app on a unix server here http://51.15.236.212/
 
